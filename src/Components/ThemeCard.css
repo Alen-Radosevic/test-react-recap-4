@@ -1,0 +1,8 @@
+.theme__toggle__button {
+  all: unset;
+  display: flex;
+  width: 100%;
+}
+.flex {
+  display: flex;
+}
