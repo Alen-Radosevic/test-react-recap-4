@@ -1,0 +1,33 @@
+.theme-form {
+  display: grid;
+  gap: 10px;
+}
+
+.theme-form__title {
+  font-size: 26px;
+  margin: 0;
+}
+
+.theme-form__name-input {
+  padding: 10px;
+  font-size: 22px;
+  border: 1px solid #d7d7e5;
+  border-radius: 8px;
+}
+
+.theme-form__color-inputs {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  border: none;
+  padding: 0;
+}
+
+.theme-form__submit-button {
+  padding: 10px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  background-color: #d7d7e5;
+  cursor: pointer;
+}
