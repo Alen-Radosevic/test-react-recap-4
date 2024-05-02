@@ -1,14 +1,26 @@
 import { useState } from "react";
 import "./App.css";
+
 import NewTheme from "./Components/NewTheme.js";
 import ThemeCard from "./Components/ThemeCard.js";
-import { themes } from "./db.js";
+import { themes as initialThemes } from "./db.js";
+import useLocalStorageState from "use-local-storage-state";
 
 function App() {
+  const [themes] = useLocalStorageState("themes", {
+    defaultValue: initialThemes,
+  });
+
   const [allThemes, setAllThemes] = useState(themes);
   function handleNewTheme(newTheme) {
     setAllThemes([newTheme, ...allThemes]);
   }
+
+  function handleDeleteTheme(id) {
+    const modifiedThemes = allThemes.filter((theme) => theme.id !== id);
+    setAllThemes(modifiedThemes);
+  }
+
   return (
     <>
       <header className="header">
@@ -19,7 +31,11 @@ function App() {
 
         <ul>
           {allThemes.map((theme) => (
-            <ThemeCard theme={theme} key={theme.id} />
+            <ThemeCard
+              theme={theme}
+              key={theme.id}
+              onDelete={handleDeleteTheme}
+            />
           ))}
         </ul>
       </main>

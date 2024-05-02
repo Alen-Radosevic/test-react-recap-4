@@ -6,3 +6,16 @@
 .flex {
   display: flex;
 }
+
+.deleteButton {
+  border: none;
+  background-color: red;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px;
+  margin-bottom: 16px;
+  box-shadow: 2px 2px 3px grey;
+  cursor: pointer;
+  width: 100%;
+}

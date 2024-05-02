@@ -4,11 +4,12 @@ import { IconChevronDown, IconChevronUp } from "@tabler/icons-react";
 import ColorSquare from "./ColorSquare";
 import "./ThemeCard.css";
 
-function ThemeCard({ theme }) {
+function ThemeCard({ theme, onDelete }) {
   const [showDetails, setShowDetails] = useState(false);
   const toggleDetails = () => {
     setShowDetails(!showDetails);
   };
+
   return (
     <li>
       <button className="theme__toggle__button" onClick={toggleDetails}>
@@ -16,11 +17,20 @@ function ThemeCard({ theme }) {
         {showDetails ? <IconChevronDown /> : <IconChevronUp />}
       </button>
       {showDetails ? (
-        <ul>
-          {theme.colors.map((color) => (
-            <ColorCard color={color} key={color.value} />
-          ))}
-        </ul>
+        <>
+          <button
+            className="deleteButton"
+            onClick={() => onDelete(theme.id)}
+            type="button"
+          >
+            Delete Theme
+          </button>
+          <ul>
+            {theme.colors.map((color) => (
+              <ColorCard color={color} key={color.value} />
+            ))}
+          </ul>
+        </>
       ) : (
         <ul className="flex">
           {theme.colors.map((color) => (
